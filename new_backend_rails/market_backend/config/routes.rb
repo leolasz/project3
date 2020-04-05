@@ -15,8 +15,14 @@ Rails.application.routes.draw do
   get 'branches/edit'
   get 'branches/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-root to: "static_pages#index"
+  resources :users, :only => [:new,:create,:index]
 
-get 'main_page',    to: 'static_pages#main_page'
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+  delete '/login' => 'session#destroy'
+
+  resources :branches
+  resources :products
+  resources :requests
 
 end

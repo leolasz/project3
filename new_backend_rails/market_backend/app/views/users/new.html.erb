@@ -1,2 +1,25 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Sign up!</h1>
+
+<% if @user.errors.any? %>
+  <ol>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ol>
+<% end %>
+
+<div class="form-group">
+<%= form_for @user do |f| %>
+
+    <%= f.label :email, :class=>"form-control col-md-4" %>
+    <%= f.email_field :email, :required => true, :autofocus => true, :class=>"form-control col-md-4 was-validated" %>
+    <br>
+    <%= f.label :password, :class=>"form-control col-md-4" %>
+    <%= f.password_field :password, :required => true, :class=>"form-control col-md-4 was-validated" %>
+    <br>
+    <%= f.label :password_confirmation, :class=>"form-control col-md-4" %>
+    <%= f.password_field :password_confirmation, :required => true, :class=>"form-control col-md-4 was-validated" %>
+    <br>
+  <%= f.submit "Sign up!", :class => 'btn btn-primary btn-lg' %>
+<% end %>
+</div>
