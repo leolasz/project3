@@ -1,6 +1,9 @@
 class BranchesController < ApplicationController
+
+
   def index
     @branches = Branch.all
+
   end
 
   def new
@@ -33,7 +36,7 @@ class BranchesController < ApplicationController
       def destroy
         branch = Branch.find params[:id]
         Branch.destroy
-        redirect_to properties_path
+        redirect_to branch_path
       end
 
     private
