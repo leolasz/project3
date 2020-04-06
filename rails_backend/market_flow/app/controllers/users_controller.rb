@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   before_action :check_for_admin, :only => [:index]  #call before action
 
+# GET /users.json
 #Index
   def index
     @users = User.all
+    format.json { render json: @users }
   end
 
 # #New User
