@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'products/index'
+resources :products
+ get 'products/index'
   get 'products/new'
   get 'products/edit'
   get 'products/show'
@@ -13,3 +14,4 @@ root to: "static_pages#index"
 get 'main_page',    to: 'static_pages#main_page'
 
 end
+ 
