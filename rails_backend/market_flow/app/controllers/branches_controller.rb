@@ -8,8 +8,7 @@ class BranchesController < ApplicationController
   end
 
     def create
-      branch = Branch.create
-      branch_params
+      branch = Branch.create branch_params
       redirect_to branch
     end
 
@@ -21,7 +20,7 @@ class BranchesController < ApplicationController
     #Update branch
       def update
         @branch = Branch.find params[:id]
-        @Branch.update branch_params
+        @branch.update branch_params
         redirect_to branch_path
       end
 
