@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 #Index
   def index
     @users = User.all
-    format.json { render json: @users }
+    # format.json { render json: @users }
   end
 
 # #New User
